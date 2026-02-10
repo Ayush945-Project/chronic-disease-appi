@@ -8,7 +8,12 @@ class PatientInput(BaseModel):
     disease: str
     symptoms: dict
     clinical: dict
-
+@app.get("/")
+def root():
+    return {
+        "status": "live",
+        "message": "Chronic Disease Risk API is running"
+    }
 @app.post("/predict")
 def predict(data: PatientInput):
     user_input = {
